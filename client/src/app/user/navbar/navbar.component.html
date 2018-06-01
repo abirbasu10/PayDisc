@@ -1,0 +1,114 @@
+<div class="row">
+  <div class="col-md-12 col-sm-12">
+    <nav id="top-menu" class="navbar navbar-expand-sm navbar-inverse">
+      <!-- <button class="navbar-toggler navbar-toggler-right collapsed hidden-md hidden-lg" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+          <div class="hamburger_menu"> </div>
+          <div class="hamburger_menu"> </div>
+          <div class="hamburger_menu"> </div>
+      </button> -->
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <div class="navbar-header">
+              <div class="row">
+                <div class="col-md-2 col-sm-12">
+                  <a class="navbar-brand" href="#">Pay Disc</a>
+                </div>
+                <div class="search col-md-7 hidden-sm hidden-xs">
+                  <input class="searchBox" #search type="text" placeholder="Search" (keyup)="getSearchSuggestions(search)"
+                  (keyup.enter)="routeFromSuggestion('searchbox',search.value)">
+    
+                  <div class="suggestions"  *ngIf="suggestionFromDB.length>0">
+                    <span *ngFor="let suggestions of suggestionFromDB">
+                      <span *ngFor="let suggestion of suggestions;let i = index">
+                        <!-- {{suggestion | json}} -->
+                        <div class="eachSuggestion" *ngFor="let val of suggestion.value " 
+                          (click)="routeFromSuggestion(suggestion.source,val.name)" >
+                        
+                          <p><strong>{{val.name}} </strong> in {{suggestion.source}}</p>
+                        </div>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="collapse navbar-collapse" id="collapsingNavbar"> -->
+          <div class="row">
+            <!-- <div class="col-md-10"> -->
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <div class="row">
+                      <div class="col-md-6 col-sm-6 " style="border-right:solid #c3bebe 1px">
+                        <ul class="multi-column-dropdown">
+                          <li class="subcat" *ngFor="let cat of categories; let i = index" [ngClass]="{'active':i==0}"
+                          (mouseenter)="setSubcategories(cat)" (click)="routeToCategoryOffer(cat)">
+                            {{cat.name}} >
+                          </li>
+                          
+                        </ul>
+                      </div>
+                      <div class="col-md-6 col-sm-6">
+                        <!-- <button class="btn hidden-md hidden-lg" (click)="unhideCategories()">go back</button> -->
+                        <ul class="multi-column-dropdown">
+                            <li class="sub_sub_cat" *ngFor="let sub of subcategories;" (click)="routeToCategoryOffer(sub)">
+                              {{sub.name}}
+                            </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </ul>
+                  <!-- <ul class="dropdown-menu">
+                      <div class="row">
+                        <div class="sub_list_class col-md-6 col-sm-6 " style="border-right:solid #c3bebe 1px">
+                          <ul class="multi-column-dropdown">
+                            <li class="subcat" *ngFor="let cat of categories; let i = index" [ngClass]="{'active':i==0}"
+                            (mouseenter)="setSubcategories(cat)" (click)="routeToCategoryOffer(cat)">{{cat.name}}</li>
+                            
+                          </ul>
+                        </div>
+                        <div class="sub_sub_list_class col-md-6 hidden-xs hidden-sm">
+                          <button class="btn hidden-md hidden-lg" (click)="unhideCategories()">go back</button>
+                          <ul class="multi-column-dropdown">
+                              <li class="sub_sub_cat" *ngFor="let sub of subcategories;" (click)="routeToCategoryOffer(sub)">
+                                {{sub.name}}
+                              </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </ul> -->
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Financial Inst <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <div class="row">
+                      <li class="col-md-3 col-sm-12 col-xs-12 financeInst" *ngFor="let fi of financeInstFromDB" (click)="routeToFinanceInstOffer(fi)">{{fi.name}}</li>
+                    </div>
+                  </ul>
+                </li>
+
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Stores <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <div class="row">
+                      <li class="col-md-4 col-sm-12 col-xs-12 stores" *ngFor="let st of storesFromDB" (click)="routeToStores(st)">{{st.name}}</li>
+                    </div>
+                  </ul>
+                </li>
+
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Brands <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <div class="row">
+                      <li class="col-md-4 col-sm-12 col-xs-12 brands" *ngFor="let br of brandsFromDB" (click)="routeToBrands(br)">{{br.name}}</li>
+                    </div>
+                  </ul>
+                </li>
+
+              </ul>
+            <!-- </div> -->
+          </div>
+        <!-- </div> -->
+    </nav>
+  </div>
+</div>

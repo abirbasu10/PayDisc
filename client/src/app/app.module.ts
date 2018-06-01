@@ -25,6 +25,13 @@ import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
 import { NearByOffersComponent } from './User/near-by-offers/near-by-offers.component';
 import { OffersHereComponent } from './user/offers-here/offers-here.component';
+import { NavbarComponent } from './User/navbar/navbar.component';
+import { NavbarService } from './navbar.service';
+import { ListOfOffersComponent } from './User/list-of-offers/list-of-offers.component';
+import { OfferDetailsComponent } from './User/offer-details/offer-details.component';
+import { PaginationService } from './pagination.service';
+import { DataExchangeService } from './data-exchange.service';
+import { OffersService } from './offers.service';
 
 
 @NgModule({
@@ -35,6 +42,9 @@ import { OffersHereComponent } from './user/offers-here/offers-here.component';
     UserComponent,
     NearByOffersComponent,
     OffersHereComponent,
+    NavbarComponent,
+    ListOfOffersComponent,
+    OfferDetailsComponent,
     
   ],
   imports: [
@@ -74,7 +84,11 @@ import { OffersHereComponent } from './user/offers-here/offers-here.component';
     MatSlideToggleModule,
 
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [NavbarService,
+              PaginationService,
+              DataExchangeService,
+              OffersService,
+              {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

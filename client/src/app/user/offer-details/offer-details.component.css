@@ -1,0 +1,33 @@
+.card
+{
+    box-shadow: 4px 5px 12px 0px #3a3636;
+}
+
+.offerName
+{
+    /* font-size: 60px;
+    font-weight: bold; */
+    color:#e61919
+}
+
+.store
+{
+    /* font-size: 36px; */
+    border-bottom:solid #e8e3e3 1px;
+    margin-bottom:5px;
+    position: relative;
+    bottom: 20px;
+}
+
+.summaryDetails, .otherDetails, .branches
+{
+    font-size:16px;
+}
+
+
+mat-chip
+{
+    border:solid black 1px;
+    background-color: rgba(255,255,255,0) !important;
+    margin:5px;
+}

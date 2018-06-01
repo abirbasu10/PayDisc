@@ -1,0 +1,64 @@
+
+.card
+{
+    cursor: pointer;
+    min-height: 415px;
+    box-shadow: 2px 3px 5px 2px #8e8a8a;
+    position: relative;
+    top: 0;
+    transition: top ease 0.5s;
+
+}
+
+.card:hover
+{
+    top: -10px;
+}
+
+.offerMainDetails, .otherDetails
+{
+    
+    text-align: center;
+}
+
+/* .offer_img
+{
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+} */
+
+.offername
+{
+    color:#e61919;
+}
+.storeName
+{
+    font-size: 20px;
+    color:#a7a4a4;
+}
+label
+{
+    color:#141414;
+}
+.category
+{
+    font-size: 16px;
+    color:#a7a4a4;
+    border-bottom:dashed #c7c4c4 1px;
+}
+.expiry
+{
+    font-size: 18px;
+    color:rgb(143, 18, 18);
+}
+.bank
+{
+    font-size: 12px;
+    color:#a7a4a4;
+}
+
+/* Pagination */
+.pagination li
+{
+    cursor: pointer;
+}

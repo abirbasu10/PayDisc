@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+	<head> 
+		<title>
+			Near By Offers
+    </title>
+   </head> 
+    <body>
+      <div class="container-fluid">
+        <div class="row">
+          <input type="hidden" id="urlHolder"/>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <button class="btn btn-primary btn-sm" (click)="getLocation()">
+                  <h3>Find Offers Here</h3>
+                </button>
+
+
+              </div>
+
+
+              <div *ngIf= "exactLocation" class="col-md-12" style="background-color: azure;">
+              <label style="color:black;">{{exactLocation}}</label>
+
+              </div>
+            </div>   
+          </div>
+        </div>
+      </div>
+
+	</body>
+</html>

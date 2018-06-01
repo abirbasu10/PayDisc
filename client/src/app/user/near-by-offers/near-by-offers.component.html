@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+	<head> 
+		<title>
+			Near By Offers
+    </title>
+   </head> 
+    <body>
+      <div class="container-fluid">
+        <div class="row">
+          <input type="hidden" id="urlHolder"/>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <!-- <button class="btn btn-danger btn-sm" (click)="getLocation()">
+                  <h3>Find Offers Near You</h3>
+                </button> -->
+                <h3 *ngIf="exactCity" class="pull-right" style="color:azure;">City is : {{exactCity.name}}</h3>
+              </div>
+
+
+              <div *ngIf="showCategories" class="col-md-12" style="background-color: azure;">
+                <div class="col-md-2">
+                    <img class="img-responsive" id="loadGif" src="assets/img/load.gif">
+                  <h4>Select Categories:</h4>
+                  <select class="form-control"  [(ngModel)]="selectedCategory" (change)="onCatChange($event.target.value)">
+                    <option *ngFor="let cat of categories" value="{{cat.id}}">
+                      {{cat.name}}
+                    </option>
+                  </select>
+                </div>
+                <div class="col-md-10" *ngIf="offers.length>0; else elseBlock">
+                  <h1>Offers Are</h1>
+                  <div class="panel panel-primary" *ngFor="let offer of offers">
+                    <label class="label label-primary">{{offer.name}}</label>
+                    <label class="label label-primary">{{offer.offrName}}</label>
+                    <label class="label label-primary">{{offer.address}}</label>
+                    <label class="label label-primary">{{offer.value}}</label>
+                    <label class="label label-primary">{{offer.location}}</label>
+                  </div>
+                </div>
+                <ng-template #elseBlock>
+                    <div class="col-md-10">
+                      <h1>No Offers Found</h1>
+                    </div>
+                </ng-template>
+
+              </div>
+            </div>   
+          </div>
+        </div>
+      </div>
+
+
+  
+
+  <div id="locationModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg" style="width:100%;position:absolute;left:0;">
+  
+      <!-- Modal content-->
+      <div class="modal-content" style="height:300px;">
+          <div class="modal-header text-center">
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            <h3 class="modal-title">Pick a City</h3>
+
+              <h5 class="modal-title">To find awesome offers around you</h5>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                  <div class="col-md-1">
+                      <i class="material-icons">
+                          location_on
+                          </i>
+                   </div>       
+                   <div class="col-md-8">
+                          <!-- <mat-select placeholder="Select Your Current City">
+                          
+                            <mat-option *ngFor="let city of cities" value="city.id">{{city.name}}</mat-option>
+                          
+                          </mat-select> -->
+                      <select class="form-control" placeholder="Select Your Current City" (change)="onCityChange($event.target.value)">
+                        <option></option>
+                        <option *ngFor="let city of cities" value="{{city.id}}">
+                          {{city.name}}
+                        </option>
+                      </select>
+                    <!-- <input type="text" placeholder="Enter your current city name" style="width:90%;"/> -->
+                  </div>
+                  <div class="col-md-3">
+                    <button class="btn btn-sm btn-default" > 
+                        
+                        <i class="material-icons">
+                            my_location
+                            </i> Use Current Location
+                      </button>
+                  </div>
+              </div>   
+          </div>
+      </div>
+  
+    </div>
+  </div>
+</div>
+</body>
+</html>

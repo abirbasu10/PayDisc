@@ -1,0 +1,82 @@
+<html>
+  <body>
+    <!-- <app-navbar></app-navbar> -->
+
+    <div class="wrapper">
+      <div class="main-content">
+        <div class="container-fluid">
+
+          <!-- Show offers based on page numbers -->
+          <div class="row">
+            <div class="col-md-12">
+              <!-- loop on paged items based on page number -->
+              <div class="offers" *ngFor="let offer of pagedItems; let i = index"> 
+                <div class="col-md-3 col-sm-12 col-xs-12">
+                  <div class="card" (click)="goToOfferDetails(offer.offerName)">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                          <img class="offer_img" src="http://localhost:8000/viewImage/{{offer.offerId}}">
+                          <!-- <img src="/assets/img/NoImage.jpg"> --><!-- offer image -->
+                        </div>
+                      </div>
+                      <div class="row" >
+                        <div class="col-md-12 col-xs-12 col-sm-12 offerMainDetails">
+                          <h3 class="offername">{{offer.offerName}}</h3>
+                          <p class="storeName">{{offer.storeName}}</p>
+                          <p class="category"><label>Category:  </label>{{offer.category}}</p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12 otherDetails">
+                          <p class="expiry"><label>Expires On:  </label>30-5-2018</p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12 bankDetails">
+                          <p class="bank">* for {{offer.bank}} only</p>
+                        </div>
+                      </div>
+    
+                    </div>
+                  </div>
+                </div>
+              </div> 
+            </div>
+          </div>
+          
+
+          <!-- Pagination -->
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" style="text-align: center">
+                      <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                        <li [ngClass]="{disabled:pager.currentPage === 1}">
+                            <a (click)="setPage(1)">First</a>
+                        </li>
+                        <li [ngClass]="{disabled:pager.currentPage === 1}">
+                            <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+                        </li>
+                        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                            <a (click)="setPage(page)">{{page}}</a>
+                        </li>
+                        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                            <a (click)="setPage(pager.currentPage + 1)">Next</a>
+                        </li>
+                        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                            <a (click)="setPage(pager.totalPages)">Last</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          
+
+          
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
