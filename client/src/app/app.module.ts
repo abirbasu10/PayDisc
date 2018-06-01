@@ -21,6 +21,13 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatTableModule} from '@angular/material/table';
 import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
+import { NavbarComponent } from './User/navbar/navbar.component';
+import { NavbarService } from './navbar.service';
+import { ListOfOffersComponent } from './User/list-of-offers/list-of-offers.component';
+import { OfferDetailsComponent } from './User/offer-details/offer-details.component';
+import { PaginationService } from './pagination.service';
+import { DataExchangeService } from './data-exchange.service';
+import { OffersService } from './offers.service';
 
 
 @NgModule({
@@ -29,6 +36,9 @@ import { UserComponent } from './user/user.component';
     AppComponent,
     AdminComponent,
     UserComponent,
+    NavbarComponent,
+    ListOfOffersComponent,
+    OfferDetailsComponent,
     
   ],
   imports: [
@@ -65,7 +75,11 @@ import { UserComponent } from './user/user.component';
     MatTableModule,
     MatSlideToggleModule,
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [NavbarService,
+              PaginationService,
+              DataExchangeService,
+              OffersService,
+              {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

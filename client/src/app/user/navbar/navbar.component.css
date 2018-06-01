@@ -1,0 +1,118 @@
+.navbar-header
+{
+    width: 100% ;
+}
+
+.open /* open class gets added to <li>'s classlist when dropdown opens */
+{
+    border-bottom: solid white 1px;
+}
+
+.searchBox
+{
+    color: black;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.suggestions
+{
+    border:solid #c3bebe 1px;
+    background-color: #ffffff;
+    color:#141414;
+    position: absolute;
+    z-index: +123456;
+    width:96.2%;
+    max-height: 140px;
+    overflow-y: scroll;
+}
+
+.suggestions a
+{
+    color:#141414
+}
+
+.eachSuggestion:hover
+{
+    background-color: #f1f1f1
+}
+
+.suggestions p
+{
+    border-bottom: solid #c3bebe 1px;
+    padding-top: 5px;
+}
+
+.hamburger_menu{
+	width: 30px;
+    height: 5px;
+    background-color: #7891a0;
+    margin: 6px 0;
+}
+
+.nav > li.dropdown.open {
+    position: static;
+}
+
+.nav > li.dropdown.open .dropdown-menu {
+display: table;
+border-radius: 0px;
+width: 100%;
+text-align: center;
+left: 0;
+right: 0;
+color:black
+}
+
+.subcat, .sub_sub_cat
+{
+    padding: 20px
+}
+.subcat:hover, .subcat:active
+{
+    cursor: pointer;
+    background-color: #ecf3f1;
+    border-radius: 20px;
+    border:solid #a9a6a6 1px;
+}
+
+.sub_sub_cat:hover
+{
+    cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 20px;
+    border:solid black 1px;
+}
+
+.financeInst, .stores, .brands
+{
+    padding: 20px;
+}
+
+.financeInst:hover, .stores:hover, .brands:hover
+{
+    cursor: pointer;
+    background-color: #ecf3f1;
+    border-radius: 20px;
+    border:solid #a9a6a6 1px;
+}
+  
+  /* .dropdown-menu > li {
+    display: table-cell;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+  }
+
+  .dropdown-menu.columns-2 {
+	min-width: 400px;
+}*/
+
+
+.multi-column-dropdown {
+	list-style: none;
+  margin: 0px;
+  padding: 0px;
+} 
+
+  
