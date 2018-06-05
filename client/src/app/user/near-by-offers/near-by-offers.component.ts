@@ -97,7 +97,7 @@ if(latlon)
       console.log("Response---->",res)
       let city = JSON.parse(res._body)
       this.exactCity = city[0];
-      this.onCityChange(this.exactCity.id);
+      this.onCityChange(city[0].id);
       console.log("City---->",city[0])
 
 
@@ -304,6 +304,7 @@ callTheApi(){
 
 onCatChange(catId){
  alert(catId);
+ console.log("Local - - -  Storage",localStorage.getItem('cityName'))
   console.log("category",this.listOfAllLatLon)
   this.parseCatChange(catId);
 }
@@ -344,9 +345,9 @@ parseCatChange(catId){
  */
 
       for(let list of this.listOfAllLatLon[0]){
-        console.log("list",list)
+        //console.log("list",list)
           for(let ordinate of data){
-            console.log("ordina",ordinate.latlon)
+          //  console.log("ordina",ordinate.latlon)
             if(ordinate.latlon==(list.lat+","+list.lng).toString()){
               console.log("inside if", ordinate);
               this.offers.push(ordinate);

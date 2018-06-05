@@ -33,9 +33,9 @@ export class ListOfOffersComponent implements OnInit {
       /* this.dataEx.offerListFunc = this.getOffers; */
     ) { 
       //alert("offer list constructor")
-      this.dataEx.offerListFunc = this.getOffers();
+      //this.dataEx.offerListFunc = this.getOffers();
     }
-  )
+
 
   ngOnInit() {
     

@@ -27,7 +27,7 @@ Route::get('/getCity', 'APIControllers\RocketController@getCityByLatLon');
 
 Route::get('/getCities', 'APIControllers\RocketController@getCities');
 
-
+Route::get('/test', 'APIControllers\RocketController@test');
 
 //Route::middleware('CORS')->post('initialData' , 'NavbarInitialController@index');
 /*Route::resource('/categoryData', 'NavbarCategoryController', ['only' => [

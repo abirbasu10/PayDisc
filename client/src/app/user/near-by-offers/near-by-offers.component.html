@@ -55,7 +55,7 @@
   
 
   <div id="locationModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg" style="width:100%;position:absolute;left:0;">
+    <div class="modal-dialog modal-lg" style="width:100%;position:absolute;left:0;margin:0;">
   
       <!-- Modal content-->
       <div class="modal-content" style="height:300px;">
@@ -88,7 +88,7 @@
                     <!-- <input type="text" placeholder="Enter your current city name" style="width:90%;"/> -->
                   </div>
                   <div class="col-md-3">
-                    <button class="btn btn-sm btn-default" > 
+                    <button class="btn btn-sm btn-default" (click)="getLocation()"> 
                         
                         <i class="material-icons">
                             my_location

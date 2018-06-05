@@ -26,6 +26,7 @@ export class NavbarComponent implements OnInit {
   /* subcats:any[]=[["subcat 1-1","subcat 1-1","subcat 1-1"],["subcat 2-1","subcat 2-1","subcat 2-1"],["subcat 3-1","subcat 3-1","subcat 3-1"]]
   subcat:any[]=[] */
   suggestionFromDB:any[]=[];
+  selectedCity : string;
   @Input() offerList: ListOfOffersComponent;
 
 
@@ -41,11 +42,14 @@ export class NavbarComponent implements OnInit {
   { } 
 
   ngOnInit() {
+    //this.selectedCity = this.dataEx.getData()
+    
     //this.subcat=this.subcats[0];
     this.getCategory();
     this.getFinancialInst();
     this.getStores();
     this.getBrands();
+
     //this.setCategories();
   }
 

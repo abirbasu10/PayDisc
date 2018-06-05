@@ -62,6 +62,10 @@ class RocketController extends Controller
         return $offers;
 
     }
+    public function test(){
+      $session = session()->all();
+      dd($session);
+    }
 
     public function getExactLocation(Request $request)
     {
@@ -95,7 +99,7 @@ class RocketController extends Controller
     }
 
     public function getCities(){
-
+      session()->put('user', 'Bipraneel1');
       $cities = DB::select("Select id,name from city");
       return Response::json([$cities]);
     }
