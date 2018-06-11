@@ -1,16 +1,16 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OffersService } from '../../offers.service';
 import { PaginationService } from '../../pagination.service';
 import { DataExchangeService } from '../../data-exchange.service';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-list-of-offers',
   templateUrl: './list-of-offers.component.html',
   styleUrls: ['./list-of-offers.component.css']
 })
-export class ListOfOffersComponent implements OnInit {
+export class ListOfOffersComponent implements OnInit, OnDestroy {
 
   urlSuffix:string="";
   offerlist:any[]=[]
@@ -23,6 +23,8 @@ export class ListOfOffersComponent implements OnInit {
  
   // paged items
   pagedItems: any[];
+
+  navigationSubscription;
   
   constructor(
       private route: ActivatedRoute,
@@ -33,9 +35,14 @@ export class ListOfOffersComponent implements OnInit {
       /* this.dataEx.offerListFunc = this.getOffers; */
     ) { 
       //alert("offer list constructor")
-      this.dataEx.offerListFunc = this.getOffers();
+      this.navigationSubscription = this.router.events.subscribe((e: any) => {
+        // If it is a NavigationEnd event re-initalise the component
+        if (e instanceof NavigationEnd) {
+          this.getOffers();
+        }
+      });
+      //this.dataEx.offerListFunc = this.getOffers();
     }
-  )
 
   ngOnInit() {
     
@@ -93,19 +100,27 @@ export class ListOfOffersComponent implements OnInit {
     ];
     this.consolidateOffers();
     this.setPage(1) */
-    //this.getOffers();
+    this.getOffers();
 
     
 
     //console.log(this.offerStore)
-    
+     
+  }
+
+  ngOnDestroy(){
+    if (this.navigationSubscription) {  
+      this.navigationSubscription.unsubscribe();
+   }
   }
 
   getOffers()
   {
     this.offerStream = this.route.snapshot.paramMap.get('offerStream');
     this.offerDomain = this.route.snapshot.paramMap.get('offerDomain');
-   //alert("from getOffers")
+    /* this.offerStream=offerStrm;
+    this.offerDomain=offerDmn; */
+    //alert("from getOffers")
     this.urlSuffix="offerListData/"+this.offerStream+"/"+this.offerDomain
     this.offerService.getOfferListFromDB(this.urlSuffix)
       .subscribe(res => {

@@ -21,8 +21,8 @@ export class OffersService {
 
   getOfferListFromDB(urlSuffix): Observable<any> {
     //alert(this.apiUrl+urlSuffix)
-    //let options = new RequestOptions({ headers: this.headers }); // Create a request option
-    return this.http.get(this.apiUrl+urlSuffix)
+    let options = new RequestOptions({ headers: this.headers }); // Create a request option
+    return this.http.get(this.apiUrl+urlSuffix, options)
         .map((response: Response) => {
             return response;
         });

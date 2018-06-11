@@ -26,7 +26,7 @@ export class NavbarComponent implements OnInit {
   /* subcats:any[]=[["subcat 1-1","subcat 1-1","subcat 1-1"],["subcat 2-1","subcat 2-1","subcat 2-1"],["subcat 3-1","subcat 3-1","subcat 3-1"]]
   subcat:any[]=[] */
   suggestionFromDB:any[]=[];
-  @Input() offerList: ListOfOffersComponent;
+  //@Input() offerList: ListOfOffersComponent;
 
 
   financeInstFromDB:any[]=[];
@@ -190,23 +190,26 @@ export class NavbarComponent implements OnInit {
   routeToCategoryOffer(cat)
   {
     //window.location.reload();
-    //this.offerList.getOffers()
-    this.dataEx.offerListFunc;
+    //this.offerList.getOffers('categories',cat.name)
+    //this.dataEx.offerListFunc;
     this.router.navigate(['user/offers/'+this.defaultCity+'/categories/'+cat.name]);
   }
 
   routeToFinanceInstOffer(fi)
   {
+    //this.offerList.getOffers('financialInstitutes',fi.name)
     this.router.navigate(['user/offers/'+this.defaultCity+'/financialInstitutes/'+fi.name]);
   }
 
   routeToStores(st)
   {
+    //this.offerList.getOffers('stores',st.name)
     this.router.navigate(['user/offers/'+this.defaultCity+'/stores/'+st.name]);
   }
 
   routeToBrands(br)
   {
+    //this.offerList.getOffers('stores',br.name)
     this.router.navigate(['user/offers/'+this.defaultCity+'/brands/'+br.name]);
   }
 }

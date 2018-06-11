@@ -19,7 +19,8 @@ const routes: Routes =[
     { path: '', redirectTo: 'user', pathMatch: 'full' },
     { path:'user/navbar', component:NavbarComponent},
     /* { path:'user/offers', component:ListOfOffersComponent}, */
-    { path:'user/offers/:city/:offerStream/:offerDomain', component:ListOfOffersComponent},
+    { path:'user/offers/:city/:offerStream/:offerDomain', component:ListOfOffersComponent, 
+    runGuardsAndResolvers:'paramsChange'},
     { path:'user/offerDetails/:offerName', component:OfferDetailsComponent},
 ];
 
@@ -27,9 +28,10 @@ const routes: Routes =[
     imports: [
       CommonModule,
       BrowserModule,
-      RouterModule.forRoot(routes)
+      RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'}),
     ],
     exports: [
+        RouterModule
     ],
 })
 export class AppRoutingModule { }
