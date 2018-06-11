@@ -15,6 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/apicall', 'APIControllers\RocketController@index');
+
+Route::get('/parseJson', 'APIControllers\RocketController@parseJson');
+
+Route::get('/getExactLocation', 'APIControllers\RocketController@getExactLocation');
+
+Route::get('/getOffer', 'APIControllers\RocketController@getOfferLocation');
+
+Route::get('/getCity', 'APIControllers\RocketController@getCityByLatLon');
+
+Route::get('/getCities', 'APIControllers\RocketController@getCities');
+
+Route::get('/test', 'APIControllers\RocketController@test');
+
 //Route::middleware('CORS')->post('initialData' , 'NavbarInitialController@index');
 /*Route::resource('/categoryData', 'NavbarCategoryController', ['only' => [
     'index', 'store', 'update', 'destroy'

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Show Google Map with Latitude and Longitude in asp.net website</title>
+<style type="text/css">
+html { height: 100% }
+body { height: 100%; margin: 0; padding: 0 }
+#map_canvas { height: 100% }
+</style>
+<script type="text/javascript"
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCybFWDTuPFDnip2qJWwSUSNHCOTqVrz5Q">
+</script>
+<script type="text/javascript">
+/*
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(24.18061975930,79.36565089010);
+        var myOptions = {
+            zoom:7,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(document.getElementById("gmap"), myOptions);
+        // marker refers to a global variable
+        marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map
+        });
+        // if center changed then update lat and lon document objects
+        google.maps.event.addListener(map, 'center_changed', function () {
+            var location = map.getCenter();
+            document.getElementById("lat").innerHTML = location.lat();
+
+            document.getElementById("lon").innerHTML = location.lng();
+            // call function to reposition marker location
+            placeMarker(location);
+        });
+        // if zoom changed, then update document object with new info
+        google.maps.event.addListener(map, 'zoom_changed', function () {
+            zoomLevel = map.getZoom();
+            document.getElementById("zoom_level").innerHTML = zoomLevel;
+        });
+        // double click on the marker changes zoom level
+        google.maps.event.addListener(marker, 'dblclick', function () {
+            zoomLevel = map.getZoom() + 1;
+            if (zoomLevel == 20) {
+                zoomLevel = 10;
+            }
+            document.getElementById("zoom_level").innerHTML = zoomLevel;
+            map.setZoom(zoomLevel);
+        });
+
+        function placeMarker(location) {
+            var clickedLocation = new google.maps.LatLng(location);
+            marker.setPosition(location);
+        }
+    }
+    window.onload = function () { initialize() };
+	*/
+	
+	
+	 var map;
+        function initialize() {
+            var myLatlng = new google.maps.LatLng(22.480045699999998,88.34870769999999);
+            var myOptions = {
+                zoom:7,
+                center: myLatlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            map = new google.maps.Map(document.getElementById("gmap"), myOptions);
+            // marker refers to a global variable
+            marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map
+            });
+
+            google.maps.event.addListener(map, "click", function(event) {
+                // get lat/lon of click
+                var clickLat = event.latLng.lat();
+                var clickLon = event.latLng.lng();
+				console.log(event)
+                // show in input box
+           //     document.getElementById("lat").value = clickLat.toFixed(5);
+             //   document.getElementById("lon").value = clickLon.toFixed(5);
+    document.getElementById("lat").innerHTML = clickLat.toFixed(5);
+
+            document.getElementById("lon").innerHTML = clickLon.toFixed(5);
+			
+                  var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(clickLat,clickLon),
+                        map: map
+                     });
+            });
+    }   
+
+    window.onload = function () { initialize() };
+</script>
+     <style>
+ div#gmap {
+        width: 80%;
+        height: 500px;
+        border:double;
+ }
+    </style>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+<center>
+<!-- MAP HOLDER -->
+<div id="gmap"></div>
+<!-- REFERENCES -->
+lat:<span id='lat'></span>
+lon:<span id='lon'></span>
+</center>

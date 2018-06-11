@@ -4,6 +4,8 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
+import { NearByOffersComponent } from './User/near-by-offers/near-by-offers.component';
+import { OffersHereComponent } from './user/offers-here/offers-here.component';
 import { NavbarComponent } from './User/navbar/navbar.component';
 import { ListOfOffersComponent } from './User/list-of-offers/list-of-offers.component';
 import { OfferDetailsComponent } from './User/offer-details/offer-details.component';
@@ -12,6 +14,9 @@ const routes: Routes =[
     /* { path: 'landing', component: LandingComponent},
     { path: '', redirectTo: 'landing', pathMatch: 'full' } */
     { path:'admin', component:AdminComponent},
+    { path:'user', component:UserComponent},
+    { path:'nearByOffer', component:NearByOffersComponent},
+    { path:'offersHere', component:OffersHereComponent},
     
     
     
