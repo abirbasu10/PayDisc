@@ -35,7 +35,6 @@ export class ListOfOffersComponent implements OnInit, OnDestroy {
       /* this.dataEx.offerListFunc = this.getOffers; */
     ) { 
       //alert("offer list constructor")
-<<<<<<< HEAD
       this.navigationSubscription = this.router.events.subscribe((e: any) => {
         // If it is a NavigationEnd event re-initalise the component
         if (e instanceof NavigationEnd) {
@@ -44,11 +43,9 @@ export class ListOfOffersComponent implements OnInit, OnDestroy {
       });
       //this.dataEx.offerListFunc = this.getOffers();
     }
-=======
       //this.dataEx.offerListFunc = this.getOffers();
-    }
 
->>>>>>> 74307ec87fefd492226b6e26a5c52cb1b185b60f
+
 
   ngOnInit() {
     
